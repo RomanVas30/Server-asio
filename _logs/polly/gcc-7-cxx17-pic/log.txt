@@ -1,0 +1,134 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/home/vagrant/Labs/lab-07]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "--version"
+cmake version 3.9.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug`
+  `-DCMAKE_BUILD_TYPE=Debug`
+  `-GUnix Makefiles`
+  `-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake`
+  `-DCMAKE_EXE_LINKER=-fuse-ld=gold`
+  `-DHUNTER_CONFIGURATION_TYPES=Debug`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "-H." "-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug" "-DCMAKE_BUILD_TYPE=Debug" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake" "-DCMAKE_EXE_LINKER=-fuse-ld=gold" "-DHUNTER_CONFIGURATION_TYPES=Debug"
+-- [polly] Used toolchain: gcc 7 / c++17 support / PIC
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /root/.hunter
+-- [hunter] [ Hunter-ID: 70287b1 | Toolchain-ID: fc9dcb2 | Config-ID: dffbc08 ]
+-- [hunter] GTEST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.8.0-hunter-p11)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- Boost version: 1.68.0
+-- Found the following Boost libraries:
+--   log
+--   thread
+--   system
+--   date_time
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug
+Execute command: [
+  `cmake`
+  `--build`
+  `/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug`
+  `--config`
+  `Debug`
+  `--`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "--build" "/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug" "--config" "Debug" "--"
+Scanning dependencies of target server
+[ 25%] Building CXX object CMakeFiles/server.dir/sources/server.cpp.o
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp: In constructor ‘talk_to_client::talk_to_client()’:
+/home/vagrant/Labs/lab-07/include/server.hpp:25:19: error: no matching function for call to ‘boost::asio::basic_stream_socket<boost::asio::ip::tcp>::basic_stream_socket()’
+   talk_to_client(){}
+                   ^
+In file included from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_streambuf.hpp:25:0,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_iostream.hpp:24,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio.hpp:31,
+                 from /home/vagrant/Labs/lab-07/include/server.hpp:15,
+                 from /home/vagrant/Labs/lab-07/sources/server.cpp:3:
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:185:3: note: candidate: template<class Protocol1> boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::basic_stream_socket<Protocol1>&&, typename std::enable_if<std::is_convertible<Protocol1, Protocol>::value>::type*)
+   basic_stream_socket(
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:185:3: note:   template argument deduction/substitution failed:
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp:25:19: note:   candidate expects 2 arguments, 0 provided
+   talk_to_client(){}
+                   ^
+In file included from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_streambuf.hpp:25:0,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_iostream.hpp:24,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio.hpp:31,
+                 from /home/vagrant/Labs/lab-07/include/server.hpp:15,
+                 from /home/vagrant/Labs/lab-07/sources/server.cpp:3:
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:152:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::basic_stream_socket<Protocol>&&) [with Protocol = boost::asio::ip::tcp]
+   basic_stream_socket(basic_stream_socket&& other)
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:152:3: note:   candidate expects 1 argument, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:134:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const protocol_type&, const native_handle_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::protocol_type = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::native_handle_type = int]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:134:3: note:   candidate expects 3 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:114:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const endpoint_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::endpoint_type = boost::asio::ip::basic_endpoint<boost::asio::ip::tcp>]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:114:3: note:   candidate expects 2 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:93:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const protocol_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::protocol_type = boost::asio::ip::tcp]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:93:3: note:   candidate expects 2 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:76:12: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&) [with Protocol = boost::asio::ip::tcp]
+   explicit basic_stream_socket(boost::asio::io_context& io_context)
+            ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:76:12: note:   candidate expects 1 argument, 0 provided
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘void talk_to_client::on_login(const string&)’:
+/home/vagrant/Labs/lab-07/include/server.hpp:74:2: error: ‘update_clients_changed’ was not declared in this scope
+  update_clients_changed();
+  ^~~~~~~~~~~~~~~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:74:2: note: suggested alternative: ‘set_clients_changed’
+  update_clients_changed();
+  ^~~~~~~~~~~~~~~~~~~~~~
+  set_clients_changed
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘void talk_to_client::on_clients()’:
+/home/vagrant/Labs/lab-07/include/server.hpp:85:42: error: ‘cs’ was not declared in this scope
+   boost::recursive_mutex::scoped_lock lk(cs);
+                                          ^~
+/home/vagrant/Labs/lab-07/include/server.hpp:85:42: note: suggested alternative: ‘cos’
+   boost::recursive_mutex::scoped_lock lk(cs);
+                                          ^~
+                                          cos
+/home/vagrant/Labs/lab-07/include/server.hpp:86:8: error: ‘array’ has not been declared
+   for( array::const_iterator b = clients.begin(), e = clients.end() ;b != e; ++b)
+        ^~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:86:70: error: ‘b’ was not declared in this scope
+   for( array::const_iterator b = clients.begin(), e = clients.end() ;b != e; ++b)
+                                                                      ^
+/home/vagrant/Labs/lab-07/include/server.hpp:86:75: error: ‘e’ was not declared in this scope
+   for( array::const_iterator b = clients.begin(), e = clients.end() ;b != e; ++b)
+                                                                           ^
+At global scope:
+cc1plus: error: unrecognized command line option ‘-Wno-unused-command-line-argument’ [-Werror]
+cc1plus: all warnings being treated as errors
+make[2]: *** [CMakeFiles/server.dir/sources/server.cpp.o] Error 1
+CMakeFiles/server.dir/build.make:62: recipe for target 'CMakeFiles/server.dir/sources/server.cpp.o' failed
+make[1]: *** [CMakeFiles/server.dir/all] Error 2
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/server.dir/all' failed
+make: *** [all] Error 2
+Makefile:94: recipe for target 'all' failed

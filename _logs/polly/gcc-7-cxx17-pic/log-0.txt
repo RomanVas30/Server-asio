@@ -1,0 +1,83 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/home/vagrant/Labs/lab-07]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "--version"
+cmake version 3.9.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug`
+  `-DCMAKE_BUILD_TYPE=Debug`
+  `-GUnix Makefiles`
+  `-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake`
+  `-DCMAKE_EXE_LINKER=-fuse-ld=gold`
+  `-DHUNTER_CONFIGURATION_TYPES=Debug`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "-H." "-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug" "-DCMAKE_BUILD_TYPE=Debug" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake" "-DCMAKE_EXE_LINKER=-fuse-ld=gold" "-DHUNTER_CONFIGURATION_TYPES=Debug"
+-- [polly] Used toolchain: gcc 7 / c++17 support / PIC
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/bin/gcc-7
+-- Check for working C compiler: /usr/bin/gcc-7 -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++-7
+-- Check for working CXX compiler: /usr/bin/g++-7 -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /root/.hunter
+-- [hunter] [ Hunter-ID: 70287b1 | Toolchain-ID: fc9dcb2 | Config-ID: dffbc08 ]
+-- [hunter] GTEST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.8.0-hunter-p11)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- Boost version: 1.68.0
+-- Found the following Boost libraries:
+--   log
+--   thread
+--   system
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Looking for clock_gettime
+-- Looking for clock_gettime - found
+-- Configuring done
+CMake Error at CMakeLists.txt:35 (add_executable):
+  Cannot find source file:
+
+    /home/vagrant/Labs/lab-07/tests/server.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+-- Generating done
+CMake Warning:
+-- Build files have been written to: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug
+  Manually-specified variables were not used by the project:
+
+    CMAKE_EXE_LINKER
+
+

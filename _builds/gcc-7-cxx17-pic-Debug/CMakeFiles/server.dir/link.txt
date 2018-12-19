@@ -1,0 +1,2 @@
+/usr/bin/ar qc libserverd.a  CMakeFiles/server.dir/sources/server.cpp.o
+/usr/bin/ranlib libserverd.a

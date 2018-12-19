@@ -1,0 +1,110 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0edc0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0edc0.dir/build.make CMakeFiles/cmTC_0edc0.dir/build
+make[1]: Entering directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0edc0.dir/CheckSymbolExists.c.o
+/usr/bin/gcc-7   -fPIC    -o CMakeFiles/cmTC_0edc0.dir/CheckSymbolExists.c.o   -c /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0edc0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0edc0.dir/link.txt --verbose=1
+/usr/bin/gcc-7 -fPIC     CMakeFiles/cmTC_0edc0.dir/CheckSymbolExists.c.o  -o cmTC_0edc0 
+CMakeFiles/cmTC_0edc0.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_0edc0.dir/build.make:97: recipe for target 'cmTC_0edc0' failed
+make[1]: *** [cmTC_0edc0] Error 1
+make[1]: Leaving directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0edc0/fast' failed
+make: *** [cmTC_0edc0/fast] Error 2
+
+File /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7b4a0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7b4a0.dir/build.make CMakeFiles/cmTC_7b4a0.dir/build
+make[1]: Entering directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b4a0.dir/CheckFunctionExists.c.o
+/usr/bin/gcc-7   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7b4a0.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7b4a0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b4a0.dir/link.txt --verbose=1
+/usr/bin/gcc-7 -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_7b4a0.dir/CheckFunctionExists.c.o  -o cmTC_7b4a0 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7b4a0.dir/build.make:97: recipe for target 'cmTC_7b4a0' failed
+make[1]: *** [cmTC_7b4a0] Error 1
+make[1]: Leaving directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7b4a0/fast' failed
+make: *** [cmTC_7b4a0/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bf31e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bf31e.dir/build.make CMakeFiles/cmTC_bf31e.dir/build
+make[1]: Entering directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bf31e.dir/CheckSymbolExists.c.o
+/usr/bin/gcc-7   -fPIC    -o CMakeFiles/cmTC_bf31e.dir/CheckSymbolExists.c.o   -c /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bf31e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf31e.dir/link.txt --verbose=1
+/usr/bin/gcc-7 -fPIC     CMakeFiles/cmTC_bf31e.dir/CheckSymbolExists.c.o  -o cmTC_bf31e 
+CMakeFiles/cmTC_bf31e.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bf31e.dir/build.make:97: recipe for target 'cmTC_bf31e' failed
+make[1]: *** [cmTC_bf31e] Error 1
+make[1]: Leaving directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_bf31e/fast' failed
+make: *** [cmTC_bf31e/fast] Error 2
+
+File /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1b183/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1b183.dir/build.make CMakeFiles/cmTC_1b183.dir/build
+make[1]: Entering directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b183.dir/CheckFunctionExists.c.o
+/usr/bin/gcc-7   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1b183.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1b183
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b183.dir/link.txt --verbose=1
+/usr/bin/gcc-7 -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1b183.dir/CheckFunctionExists.c.o  -o cmTC_1b183 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_1b183.dir/build.make:97: recipe for target 'cmTC_1b183' failed
+make[1]: *** [cmTC_1b183] Error 1
+make[1]: Leaving directory '/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1b183/fast' failed
+make: *** [cmTC_1b183/fast] Error 2
+
+

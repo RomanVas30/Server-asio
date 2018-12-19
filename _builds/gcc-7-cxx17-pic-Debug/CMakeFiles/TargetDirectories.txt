@@ -1,0 +1,5 @@
+/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/edit_cache.dir
+/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/test.dir
+/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/rebuild_cache.dir
+/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/server.dir
+/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug/CMakeFiles/tests.dir

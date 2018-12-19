@@ -1,0 +1,210 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/home/vagrant/Labs/lab-07]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "--version"
+cmake version 3.9.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug`
+  `-DCMAKE_BUILD_TYPE=Debug`
+  `-GUnix Makefiles`
+  `-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake`
+  `-DCMAKE_EXE_LINKER=-fuse-ld=gold`
+  `-DHUNTER_CONFIGURATION_TYPES=Debug`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "-H." "-B/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug" "-DCMAKE_BUILD_TYPE=Debug" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/home/vagrant/Labs/lab-07/tools/polly/gcc-7-cxx17-pic.cmake" "-DCMAKE_EXE_LINKER=-fuse-ld=gold" "-DHUNTER_CONFIGURATION_TYPES=Debug"
+-- [polly] Used toolchain: gcc 7 / c++17 support / PIC
+-- The C compiler identification is GNU 7.3.0
+-- The CXX compiler identification is GNU 7.3.0
+-- Check for working C compiler: /usr/bin/gcc-7
+-- Check for working C compiler: /usr/bin/gcc-7 -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/g++-7
+-- Check for working CXX compiler: /usr/bin/g++-7 -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /root/.hunter
+-- [hunter] [ Hunter-ID: 70287b1 | Toolchain-ID: fc9dcb2 | Config-ID: dffbc08 ]
+-- [hunter] GTEST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.8.0-hunter-p11)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- [hunter] BOOST_ROOT: /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install (ver.: 1.68.0-p1)
+-- Boost version: 1.68.0
+-- Found the following Boost libraries:
+--   log
+--   thread
+--   system
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Looking for clock_gettime
+-- Looking for clock_gettime - found
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_EXE_LINKER
+
+
+-- Build files have been written to: /home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug
+Execute command: [
+  `cmake`
+  `--build`
+  `/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug`
+  `--config`
+  `Debug`
+  `--`
+]
+[/home/vagrant/Labs/lab-07]> "cmake" "--build" "/home/vagrant/Labs/lab-07/_builds/gcc-7-cxx17-pic-Debug" "--config" "Debug" "--"
+Scanning dependencies of target server
+[ 25%] Building CXX object CMakeFiles/server.dir/sources/server.cpp.o
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp:19:22: error: expected ‘{’ before ‘;’ token
+ namespace boost::asio;
+                      ^
+/home/vagrant/Labs/lab-07/include/server.hpp:19:22: error: extra ‘;’ [-Werror=pedantic]
+/home/vagrant/Labs/lab-07/include/server.hpp:21:27: error: ‘talk_to_client’ was not declared in this scope
+ typedef boost::shared_ptr<talk_to_client> client_ptr;
+                           ^~~~~~~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:21:41: error: template argument 1 is invalid
+ typedef boost::shared_ptr<talk_to_client> client_ptr;
+                                         ^
+/home/vagrant/Labs/lab-07/include/server.hpp:104:2: error: ‘ptime’ does not name a type; did you mean ‘xtime’?
+  ptime last_ping;
+  ^~~~~
+  xtime
+/home/vagrant/Labs/lab-07/include/server.hpp: In constructor ‘boost::asio::talk_to_client::talk_to_client()’:
+/home/vagrant/Labs/lab-07/include/server.hpp:28:20: error: no matching function for call to ‘boost::asio::basic_stream_socket<boost::asio::ip::tcp>::basic_stream_socket()’
+   talk_to_client() {}
+                    ^
+In file included from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_streambuf.hpp:25:0,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_iostream.hpp:24,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio.hpp:31,
+                 from /home/vagrant/Labs/lab-07/include/server.hpp:15,
+                 from /home/vagrant/Labs/lab-07/sources/server.cpp:3:
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:185:3: note: candidate: template<class Protocol1> boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::basic_stream_socket<Protocol1>&&, typename std::enable_if<std::is_convertible<Protocol1, Protocol>::value>::type*)
+   basic_stream_socket(
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:185:3: note:   template argument deduction/substitution failed:
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp:28:20: note:   candidate expects 2 arguments, 0 provided
+   talk_to_client() {}
+                    ^
+In file included from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_streambuf.hpp:25:0,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_socket_iostream.hpp:24,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio.hpp:31,
+                 from /home/vagrant/Labs/lab-07/include/server.hpp:15,
+                 from /home/vagrant/Labs/lab-07/sources/server.cpp:3:
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:152:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::basic_stream_socket<Protocol>&&) [with Protocol = boost::asio::ip::tcp]
+   basic_stream_socket(basic_stream_socket&& other)
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:152:3: note:   candidate expects 1 argument, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:134:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const protocol_type&, const native_handle_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::protocol_type = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::native_handle_type = int]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:134:3: note:   candidate expects 3 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:114:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const endpoint_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::endpoint_type = boost::asio::ip::basic_endpoint<boost::asio::ip::tcp>]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:114:3: note:   candidate expects 2 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:93:3: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&, const protocol_type&) [with Protocol = boost::asio::ip::tcp; boost::asio::basic_stream_socket<Protocol>::protocol_type = boost::asio::ip::tcp]
+   basic_stream_socket(boost::asio::io_context& io_context,
+   ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:93:3: note:   candidate expects 2 arguments, 0 provided
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:76:12: note: candidate: boost::asio::basic_stream_socket<Protocol>::basic_stream_socket(boost::asio::io_context&) [with Protocol = boost::asio::ip::tcp]
+   explicit basic_stream_socket(boost::asio::io_context& io_context)
+            ^~~~~~~~~~~~~~~~~~~
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/asio/basic_stream_socket.hpp:76:12: note:   candidate expects 1 argument, 0 provided
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘bool boost::asio::talk_to_client::timed_out() const’:
+/home/vagrant/Labs/lab-07/include/server.hpp:44:5: error: ‘ptime’ was not declared in this scope
+     ptime now = microsec_clock::local_time();
+     ^~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:44:5: note: suggested alternative:
+In file included from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/date_time/posix_time/posix_time_types.hpp:12:0,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread/thread_time.hpp:11,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread/lock_types.hpp:18,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread/pthread/thread_data.hpp:12,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread/thread_only.hpp:17,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread/thread.hpp:12,
+                 from /root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/thread.hpp:13,
+                 from /home/vagrant/Labs/lab-07/include/server.hpp:13,
+                 from /home/vagrant/Labs/lab-07/sources/server.cpp:3:
+/root/.hunter/_Base/70287b1/fc9dcb2/dffbc08/Install/include/boost/date_time/posix_time/ptime.hpp:32:30: note:   ‘boost::posix_time::ptime’
+   class BOOST_SYMBOL_VISIBLE ptime : public date_time::base_time<ptime, posix_time_system>
+                              ^~~~~
+In file included from /home/vagrant/Labs/lab-07/sources/server.cpp:3:0:
+/home/vagrant/Labs/lab-07/include/server.hpp:45:21: error: ‘now’ was not declared in this scope
+     long long ms = (now - last_ping).total_milliseconds();
+                     ^~~
+/home/vagrant/Labs/lab-07/include/server.hpp:45:21: note: suggested alternative: ‘pow’
+     long long ms = (now - last_ping).total_milliseconds();
+                     ^~~
+                     pow
+/home/vagrant/Labs/lab-07/include/server.hpp:45:27: error: ‘last_ping’ was not declared in this scope
+     long long ms = (now - last_ping).total_milliseconds();
+                           ^~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:45:27: note: suggested alternative: ‘on_ping’
+     long long ms = (now - last_ping).total_milliseconds();
+                           ^~~~~~~~~
+                           on_ping
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘void boost::asio::talk_to_client::process_request()’:
+/home/vagrant/Labs/lab-07/include/server.hpp:62:2: error: ‘last_ping’ was not declared in this scope
+  last_ping = microsec_clock::local_time();
+  ^~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:62:2: note: suggested alternative: ‘on_ping’
+  last_ping = microsec_clock::local_time();
+  ^~~~~~~~~
+  on_ping
+/home/vagrant/Labs/lab-07/include/server.hpp:62:14: error: ‘microsec_clock’ has not been declared
+  last_ping = microsec_clock::local_time();
+              ^~~~~~~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘void boost::asio::talk_to_client::on_login(const string&)’:
+/home/vagrant/Labs/lab-07/include/server.hpp:77:2: error: ‘update_clients_changed’ was not declared in this scope
+  update_clients_changed();
+  ^~~~~~~~~~~~~~~~~~~~~~
+/home/vagrant/Labs/lab-07/include/server.hpp:77:2: note: suggested alternative: ‘set_clients_changed’
+  update_clients_changed();
+  ^~~~~~~~~~~~~~~~~~~~~~
+  set_clients_changed
+/home/vagrant/Labs/lab-07/include/server.hpp: In member function ‘void boost::asio::talk_to_client::on_clients()’:
+/home/vagrant/Labs/lab-07/include/server.hpp:90:15: error: base operand of ‘->’ is not a pointer
+    msg += (*b)->username() + " ";
+               ^~
+/home/vagrant/Labs/lab-07/include/server.hpp: At global scope:
+/home/vagrant/Labs/lab-07/include/server.hpp:105:2: error: expected ‘}’ at end of input
+ };
+  ^
+cc1plus: error: unrecognized command line option ‘-Wno-unused-command-line-argument’ [-Werror]
+cc1plus: all warnings being treated as errors
+make[2]: *** [CMakeFiles/server.dir/sources/server.cpp.o] Error 1
+CMakeFiles/server.dir/build.make:62: recipe for target 'CMakeFiles/server.dir/sources/server.cpp.o' failed
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/server.dir/all' failed
+make[1]: *** [CMakeFiles/server.dir/all] Error 2
+make: *** [all] Error 2
+Makefile:94: recipe for target 'all' failed
